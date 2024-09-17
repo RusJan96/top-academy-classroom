@@ -14,15 +14,16 @@ class City :
 
     def print(self):
         print(' Название города', self.city)    
-        print(' Регион ')
-        print(' Страна')
-        print(' Количество людей в городе')
-        print(' Почтовый индекс')
-        print(' телефонный код города')
+        print(' Регион ', self.region)
+        print(' Страна',self.country)
+        print(' Количество людей в городе',self.number_of_people)
+        print(' Почтовый индекс',self.index)
+        print(' телефонный код города',self.phone_kod )
         
 
 Krasnoyarsk: City = City('Красноярск', '124', ' Россия', ' 2 846 120', '660000', ' (391)') 
-Krasnoyarsk.print()       
+Krasnoyarsk.print()    
+print(' ')   
 
 
 Tomsk: City = City('Томск', '70', ' Россия', ' 545 391', '634000', ' (382-2)') 
