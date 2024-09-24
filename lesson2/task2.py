@@ -1,10 +1,5 @@
-# 17.09
-# задание 4!!!
 
 
-# from __future__ import annotation   
-
-#  для классов чтобы не было ошибок!!!
 class Fraction:
     def __init__(self,  numerator: int, denominator: int, int_part: int = 0) -> None:
         self.__int_part: int = int_part
@@ -22,18 +17,18 @@ class Fraction:
         #  изменить значение у приватного значения!!! - это сеттер
 
 
-    def add(self, fraction):
+    def __add__(self, fraction):
         num = self.__num * fraction.__den + fraction.__num * self.__den
         den = self.__num * fraction.__den
         return Fraction(num, den)
 
-    def subtraction(self, fraction):
+    def __subtraction__(self, fraction):
         num = self.__num * fraction.__den - fraction.__num * self.__den
         den = self.__num * fraction.__den
         return Fraction(num, den)
 
 
-    def division(self, fraction):
+    def __division__(self, fraction):
         num = self.__num * fraction.__den
         den = self.__den * fraction.__num
         return Fraction(num, den)
@@ -41,7 +36,7 @@ class Fraction:
 
 
 
-    def multiplay(self, fraction):
+    def __multiplay__(self, fraction):
         num = self.__num * fraction.__num
         den = self.__den * fraction.__den
         return Fraction(num,den)
