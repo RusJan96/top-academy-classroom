@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Список проектов</h1>
+  <p class="mb-5 text-body-secondary">Все проекты в системе</p>
+  <div class="row flex-column gap-4 align-items-center">
+    {% for project in projects %}
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{ project.name }}</h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary">{{ project.created_at }}</h6>
+            pre class="card-text">{{ project.description }}</pre>
+            <a href="{% url 'project' project.id %}" class="card-link">Посмотреть проект</a>
+          </div>
+        </div>
+    </div>
+{% empty %}
+      </div>
+    {% empty %}
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Еще нет проектов</h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary">Создайте что-бы улучшить свой проект-менеджмент</h6>
+            <p class="card-text">Проект должен нести определенный смысл, в него будут добавляться задачи, все структурировано</p>
+            <a href="#" class="card-link">Создать проект</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{{ project.name }}</h1>
+  <pre class="text-body-secondary">{{ project.description }}</pre>
+  <p class="mb-5 text-body-secondary">Проект создан {{ project.created_at }}</p>
+
+  <div class="row gap-3">
+    <h2>Задачи проекта</h2>
+    {% for task in tasks %}
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{ task.title }}</h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary">{{ task.status }} - {{ task.due_date }}</h6>
+            <pre class="card-text">{{ task.description }}</pre>
+            <a href="#" class="card-link">Посмотреть задачу</a>
+          </div>
+        </div>
+      </div>
+    {% empty %}
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Еще нет задач</h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary">Смотрю вы любите отдыхать...</h6>
+            <p class="card-text">Всем известно, что слона проще есть по частям</p>
+            <a href="#" class="card-link">Создать задачу</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}
